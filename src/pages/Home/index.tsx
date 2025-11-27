@@ -5,6 +5,7 @@ import { Slider } from "../../components/Slider";
 import data from "../../data.yml";
 
 import "./style.css";
+import { Button } from "../../components/Button";
 
 export function Home() {
   return (
@@ -24,41 +25,57 @@ function Editor() {
   const [fontSize, setFontSize] = useState(12);
 
   return (
-    <div class={"flex flex-col items-center gap-8 sm:flex-row sm:items-start"}>
-      <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
-        <Preview />
-        <Slider
-          vertical
-          value={y}
-          min={0}
-          max={100}
-          onChange={(v) => setY(v)}
-        />
-        <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+    <div class={"flex flex-col gap-8"}>
+      <div
+        class={"flex flex-col items-center gap-8 sm:flex-row sm:items-start"}
+      >
+        <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
+          <Preview />
+          <Slider
+            vertical
+            value={y}
+            min={0}
+            max={100}
+            onChange={(v) => setY(v)}
+          />
+          <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+        </div>
+        <div
+          class={
+            "max-w-2xs flex w-full grow flex-col items-stretch sm:max-w-full"
+          }
+        >
+          <p>Rotation</p>
+          <Slider
+            value={rotation}
+            min={-180}
+            max={180}
+            onChange={(v) => setRotation(v)}
+          />
+
+          <p class={"mt-4"}>Font size</p>
+          <Slider
+            value={fontSize}
+            min={1}
+            max={48}
+            onChange={(v) => setFontSize(v)}
+          />
+
+          <p class={"mt-4"}>Text</p>
+          <textarea class={"mt-2 rounded-lg bg-black/30 p-2"}></textarea>
+        </div>
       </div>
       <div
         class={
-          "max-w-2xs flex w-full grow flex-col items-stretch sm:max-w-full"
+          "flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
         }
       >
-        <p>Rotation</p>
-        <Slider
-          value={rotation}
-          min={-180}
-          max={180}
-          onChange={(v) => setRotation(v)}
-        />
-
-        <p class={"mt-4"}>Font size</p>
-        <Slider
-          value={fontSize}
-          min={1}
-          max={48}
-          onChange={(v) => setFontSize(v)}
-        />
-
-        <p class={"mt-4"}>Text</p>
-        <textarea class={"mt-2 rounded-lg bg-black/30 p-2"}></textarea>
+        <Button type="change" onClick={() => {}}>
+          <span>Change character</span>
+        </Button>
+        <Button type="confirm" onClick={() => {}}>
+          <span>Download sticker</span>
+        </Button>
       </div>
     </div>
   );
