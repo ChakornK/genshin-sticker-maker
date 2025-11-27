@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #3e4557;
+  --color-darker: #363d4f;
+  --color-darkest: #2d3240;
+  --color-light: #ece5d7;
+  --color-accent: #d1bc8c;
+}
+
+:root {
+  font-family: "Jua";
+  @apply bg-darkest text-light;
+}

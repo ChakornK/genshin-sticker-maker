@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@pixi/react": "^8.0.4",
+    "@tailwindcss/vite": "^4.1.17",
+    "pixi.js": "^8.14.3",
+    "preact": "^10.27.2",
+    "preact-iso": "^2.11.0",
+    "preact-render-to-string": "^6.6.3",
+    "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  },
+  "packageManager": "yarn@4.12.0"
+}
