@@ -1,0 +1,460 @@
+aether:
+  name: Aether
+  preview: 20
+  count: 20
+aino:
+  name: Aino
+  preview: 3
+  count: 4
+albedo:
+  name: Albedo
+  preview: 6
+  count: 10
+alhaitham:
+  name: Alhaitham
+  preview: 3
+  count: 4
+amber:
+  name: Amber
+  preview: 4
+  count: 4
+arlecchino:
+  name: Arlecchino
+  preview: 6
+  count: 7
+ayaka:
+  name: Ayaka
+  preview: 2
+  count: 11
+ayato:
+  name: Ayato
+  preview: 4
+  count: 5
+baizhu:
+  name: Baizhu
+  preview: 4
+  count: 4
+barbara:
+  name: Barbara
+  preview: 3
+  count: 4
+beidou:
+  name: Beidou
+  preview: 1
+  count: 2
+bennett:
+  name: Bennett
+  preview: 3
+  count: 3
+candace:
+  name: Candace
+  preview: 5
+  count: 5
+charlotte:
+  name: Charlotte
+  preview: 2
+  count: 6
+chasca:
+  name: Chasca
+  preview: 2
+  count: 7
+chevreuse:
+  name: Chevreuse
+  preview: 1
+  count: 5
+chiori:
+  name: Chiori
+  preview: 1
+  count: 4
+chlorinde:
+  name: Chlorinde
+  preview: 1
+  count: 5
+chongyun:
+  name: Chongyun
+  preview: 1
+  count: 2
+citlali:
+  name: Citlali
+  preview: 3
+  count: 9
+collei:
+  name: Collei
+  preview: 9
+  count: 9
+columbina:
+  name: Columbina
+  preview: 1
+  count: 2
+cyno:
+  name: Cyno
+  preview: 1
+  count: 11
+dahlia:
+  name: Dahlia
+  preview: 1
+  count: 4
+dainsleif:
+  name: Dainsleif
+  preview: 2
+  count: 4
+dehya:
+  name: Dehya
+  preview: 3
+  count: 4
+diluc:
+  name: Diluc
+  preview: 1
+  count: 2
+diona:
+  name: Diona
+  preview: 3
+  count: 7
+dori:
+  name: Dori
+  preview: 1
+  count: 5
+durin:
+  name: Durin
+  preview: 1
+  count: 3
+emilie:
+  name: Emilie
+  preview: 1
+  count: 4
+escoffier:
+  name: Escoffier
+  preview: 2
+  count: 4
+eula:
+  name: Eula
+  preview: 1
+  count: 12
+faruzan:
+  name: Faruzan
+  preview: 3
+  count: 6
+fischl:
+  name: Fischl
+  preview: 5
+  count: 5
+flins:
+  name: Flins
+  preview: 2
+  count: 4
+freminet:
+  name: Freminet
+  preview: 1
+  count: 8
+furina:
+  name: Furina
+  preview: 3
+  count: 6
+gaming:
+  name: Gaming
+  preview: 5
+  count: 7
+ganyu:
+  name: Ganyu
+  preview: 8
+  count: 8
+gorou:
+  name: Gorou
+  preview: 1
+  count: 5
+heizou:
+  name: Heizou
+  preview: 4
+  count: 5
+hutao:
+  name: Hu Tao
+  preview: 20
+  count: 21
+iansan:
+  name: Iansan
+  preview: 2
+  count: 6
+ifa:
+  name: Ifa
+  preview: 3
+  count: 7
+ineffa:
+  name: Ineffa
+  preview: 1
+  count: 4
+itto:
+  name: Itto
+  preview: 1
+  count: 10
+jahoda:
+  name: Jahoda
+  preview: 1
+  count: 3
+jean:
+  name: Jean
+  preview: 6
+  count: 8
+kachina:
+  name: Kachina
+  preview: 1
+  count: 5
+kaeya:
+  name: Kaeya
+  preview: 2
+  count: 6
+kaveh:
+  name: Kaveh
+  preview: 2
+  count: 9
+kazuha:
+  name: Kazuha
+  preview: 3
+  count: 9
+keqing:
+  name: Keqing
+  preview: 6
+  count: 15
+kinich:
+  name: Kinich
+  preview: 4
+  count: 8
+kirara:
+  name: Kirara
+  preview: 1
+  count: 8
+klee:
+  name: Klee
+  preview: 7
+  count: 7
+kokomi:
+  name: Kokomi
+  preview: 8
+  count: 11
+kuki:
+  name: Kuki Shinobu
+  preview: 1
+  count: 4
+lanyan:
+  name: Lanyan
+  preview: 3
+  count: 3
+lauma:
+  name: Lauma
+  preview: 4
+  count: 4
+layla:
+  name: Layla
+  preview: 5
+  count: 5
+lisa:
+  name: Lisa
+  preview: 2
+  count: 3
+lumine:
+  name: Lumine
+  preview: 8
+  count: 8
+lynette:
+  name: Lynette
+  preview: 10
+  count: 10
+lyney:
+  name: Lyney
+  preview: 5
+  count: 9
+mavuika:
+  name: Mavuika
+  preview: 1
+  count: 7
+mika:
+  name: Mika
+  preview: 4
+  count: 4
+miko:
+  name: Miko
+  preview: 4
+  count: 10
+mizuki:
+  name: Mizuki
+  preview: 5
+  count: 6
+mona:
+  name: Mona
+  preview: 1
+  count: 8
+mualani:
+  name: Mualani
+  preview: 2
+  count: 6
+nahida:
+  name: Nahida
+  preview: 5
+  count: 9
+navia:
+  name: Navia
+  preview: 3
+  count: 9
+nefer:
+  name: Nefer
+  preview: 5
+  count: 5
+neuvillette:
+  name: Neuvillette
+  preview: 1
+  count: 6
+nilou:
+  name: Nilou
+  preview: 1
+  count: 6
+ningguang:
+  name: Ningguang
+  preview: 1
+  count: 3
+noelle:
+  name: Noelle
+  preview: 1
+  count: 1
+ororon:
+  name: Ororon
+  preview: 3
+  count: 8
+paimon:
+  name: Paimon
+  preview: 20
+  count: 35
+qiqi:
+  name: Qiqi
+  preview: 2
+  count: 3
+raiden:
+  name: Raiden
+  preview: 7
+  count: 13
+razor:
+  name: Razor
+  preview: 1
+  count: 3
+rosaria:
+  name: Rosaria
+  preview: 1
+  count: 5
+sandrone:
+  name: Sandrone
+  preview: 1
+  count: 2
+sara:
+  name: Kujou Sara
+  preview: 4
+  count: 4
+sayu:
+  name: Sayu
+  preview: 3
+  count: 5
+sethos:
+  name: Sethos
+  preview: 2
+  count: 6
+shenhe:
+  name: Shenhe
+  preview: 3
+  count: 6
+sigewinne:
+  name: Sigewinne
+  preview: 1
+  count: 4
+skirk:
+  name: Skirk
+  preview: 1
+  count: 4
+sucrose:
+  name: Sucrose
+  preview: 10
+  count: 10
+tartaglia:
+  name: Tartaglia
+  preview: 8
+  count: 13
+thoma:
+  name: Thoma
+  preview: 1
+  count: 7
+tighnari:
+  name: Tighnari
+  preview: 7
+  count: 8
+varesa:
+  name: Varesa
+  preview: 2
+  count: 4
+varka:
+  name: Varka
+  preview: 1
+  count: 1
+venti:
+  name: Venti
+  preview: 15
+  count: 15
+wanderer:
+  name: Wanderer
+  preview: 4
+  count: 9
+wriothesley:
+  name: Wriothesley
+  preview: 1
+  count: 5
+xiangling:
+  name: Xiangling
+  preview: 1
+  count: 5
+xianyun:
+  name: Xianyun
+  preview: 2
+  count: 8
+xiao:
+  name: Xiao
+  preview: 11
+  count: 13
+xilonen:
+  name: Xilonen
+  preview: 4
+  count: 5
+xingqiu:
+  name: Xingqiu
+  preview: 1
+  count: 5
+xinyan:
+  name: Xinyan
+  preview: 3
+  count: 8
+yanfei:
+  name: Yanfei
+  preview: 2
+  count: 7
+yaoyao:
+  name: Yaoyao
+  preview: 3
+  count: 8
+yelan:
+  name: Yelan
+  preview: 4
+  count: 7
+yoimiya:
+  name: Yoimiya
+  preview: 1
+  count: 12
+yunjin:
+  name: Yunjin
+  preview: 1
+  count: 4
+zhongli:
+  name: Zhongli
+  preview: 7
+  count: 7
+hilichurl:
+  name: Hilichurl
+  preview: 8
+  count: 35
+others:
+  name: Others
+  preview: 28
+  count: 55

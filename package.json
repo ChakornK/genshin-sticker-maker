@@ -16,6 +16,7 @@
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
+    "@modyfi/vite-plugin-yaml": "^1.1.1",
     "@preact/preset-vite": "^2.10.2",
     "typescript": "^5.9.3",
     "vite": "^7.2.4"

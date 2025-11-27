@@ -1,7 +1,10 @@
 import { useState } from "preact/hooks";
 
-import "./style.css";
 import { Slider } from "../../components/Slider";
+
+import data from "../../data.yml";
+
+import "./style.css";
 
 export function Home() {
   return (
