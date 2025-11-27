@@ -29,12 +29,12 @@ function Editor() {
         <Preview />
         <Slider
           vertical
-          value={x}
+          value={y}
           min={0}
           max={100}
-          onChange={(v) => setX(v)}
+          onChange={(v) => setY(v)}
         />
-        <Slider value={y} min={0} max={100} onChange={(v) => setY(v)} />
+        <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
       </div>
       <div
         class={
