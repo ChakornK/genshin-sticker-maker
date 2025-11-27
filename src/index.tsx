@@ -13,7 +13,7 @@ import "./style.css";
 export function App() {
   return (
     <LocationProvider>
-      <div className={"h-screen w-screen overflow-hidden"}>
+      <div className={"h-screen w-screen overflow-x-hidden"}>
         <Router>
           <Route path="/" component={Home} />
           <Route default component={NotFound} />
