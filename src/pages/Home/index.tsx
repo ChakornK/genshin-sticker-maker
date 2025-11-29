@@ -92,7 +92,10 @@ function Editor() {
         <Button type="change" onClick={() => {}}>
           <span>Change character</span>
         </Button>
-        <Button type="confirm" onClick={() => {}}>
+        <Button
+          type="confirm"
+          onClick={() => window.dispatchEvent(new Event("download-sticker"))}
+        >
           <span>Download sticker</span>
         </Button>
       </div>
@@ -202,6 +205,20 @@ function Preview({
     text.x = (textX / 100) * app.screen.width;
     text.y = (textY / 100) * app.screen.height;
   }, [ready, text, textContent, textSize, textRotation, textX, textY]);
+
+  useEffect(() => {
+    const cb = () => {
+      if (!app?.renderer?.extract) return;
+      app.renderer.extract.download({
+        target: app.stage,
+        filename: `${characterName}${characterNum}_${Date.now()}.png`,
+      });
+    };
+    window.addEventListener("download-sticker", cb);
+    return () => {
+      window.removeEventListener("download-sticker", cb);
+    };
+  }, []);
 
   return (
     <div
