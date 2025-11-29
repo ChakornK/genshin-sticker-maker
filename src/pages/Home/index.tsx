@@ -7,6 +7,7 @@ import data from "../../data.yml";
 import "./style.css";
 import { Button } from "../../components/Button";
 import { Application, Assets, Sprite, Text } from "pixi.js";
+import { Modal } from "../../components/Modal";
 
 const RESOURCE_BASE_URL =
   "https://cdn.jsdelivr.net/gh/ChakornK/genshin-sticker-maker/assets";
@@ -29,77 +30,86 @@ function Editor() {
   const [fontSize, setFontSize] = useState(36);
   const [textContent, setTextContent] = useState("Hello!");
 
+  // TODO: hide by default
+  const [stickerPickerVisible, setStickerPickerVisible] = useState(true);
+
   return (
-    <div class={"flex flex-col gap-8"}>
-      <div
-        class={"flex flex-col items-center gap-8 sm:flex-row sm:items-start"}
-      >
-        <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
-          <Preview
-            characterName="Klee"
-            characterNum="1"
-            textContent={textContent}
-            textSize={fontSize}
-            textRotation={rotation}
-            textX={x}
-            textY={y}
-          />
-          <Slider
-            vertical
-            value={y}
-            min={0}
-            max={100}
-            onChange={(v) => setY(v)}
-          />
-          <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+    <>
+      <div class={"flex flex-col gap-8"}>
+        <div
+          class={"flex flex-col items-center gap-8 sm:flex-row sm:items-start"}
+        >
+          <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
+            <Preview
+              characterName="Klee"
+              characterNum="1"
+              textContent={textContent}
+              textSize={fontSize}
+              textRotation={rotation}
+              textX={x}
+              textY={y}
+            />
+            <Slider
+              vertical
+              value={y}
+              min={0}
+              max={100}
+              onChange={(v) => setY(v)}
+            />
+            <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+          </div>
+          <div
+            class={
+              "max-w-2xs flex w-full grow flex-col items-stretch sm:max-w-full"
+            }
+          >
+            <p>Rotation</p>
+            <Slider
+              value={rotation}
+              min={-180}
+              max={180}
+              onChange={(v) => setRotation(v)}
+            />
+
+            <p class={"mt-4"}>Font size</p>
+            <Slider
+              value={fontSize}
+              min={12}
+              max={96}
+              onChange={(v) => setFontSize(v)}
+            />
+
+            <p class={"mt-4"}>Text</p>
+            <textarea
+              class={"mt-2 rounded-lg bg-black/30 p-2"}
+              value={textContent}
+              onInput={(e) =>
+                setTextContent((e.target as HTMLTextAreaElement).value)
+              }
+            />
+          </div>
         </div>
         <div
           class={
-            "max-w-2xs flex w-full grow flex-col items-stretch sm:max-w-full"
+            "flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
           }
         >
-          <p>Rotation</p>
-          <Slider
-            value={rotation}
-            min={-180}
-            max={180}
-            onChange={(v) => setRotation(v)}
-          />
-
-          <p class={"mt-4"}>Font size</p>
-          <Slider
-            value={fontSize}
-            min={12}
-            max={96}
-            onChange={(v) => setFontSize(v)}
-          />
-
-          <p class={"mt-4"}>Text</p>
-          <textarea
-            class={"mt-2 rounded-lg bg-black/30 p-2"}
-            value={textContent}
-            onInput={(e) =>
-              setTextContent((e.target as HTMLTextAreaElement).value)
-            }
-          />
+          <Button type="change" onClick={() => setStickerPickerVisible(true)}>
+            <span>Change character</span>
+          </Button>
+          <Button
+            type="confirm"
+            onClick={() => window.dispatchEvent(new Event("download-sticker"))}
+          >
+            <span>Download sticker</span>
+          </Button>
         </div>
       </div>
-      <div
-        class={
-          "flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
-        }
-      >
-        <Button type="change" onClick={() => {}}>
-          <span>Change character</span>
-        </Button>
-        <Button
-          type="confirm"
-          onClick={() => window.dispatchEvent(new Event("download-sticker"))}
-        >
-          <span>Download sticker</span>
-        </Button>
-      </div>
-    </div>
+      <StickerPicker
+        visible={stickerPickerVisible}
+        setVisible={setStickerPickerVisible}
+      />
+    </>
   );
 }
 
@@ -225,5 +235,41 @@ function Preview({
       ref={appContainer}
       class={"bg-darker *:w-full *:h-full h-64 w-64 rounded-xl"}
     ></div>
+  );
+}
+
+function StickerPicker({
+  visible,
+  setVisible,
+}: {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+}) {
+  return (
+    <Modal
+      visible={visible}
+      onClose={() => setVisible(false)}
+      title="Select character"
+    >
+      <div
+        class={
+          "grid grid-cols-3 gap-y-4 gap-x-2 sm:gap-x-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+        }
+      >
+        {Object.entries(data).map(([id, { name, preview }]) => (
+          <button
+            class={
+              "hover:bg-darker flex aspect-square cursor-pointer rounded-lg w-24 sm:w-28 flex-col items-center gap-1.5 justify-center"
+            }
+          >
+            <img
+              class={"h-auto w-20"}
+              src={`${RESOURCE_BASE_URL}/${id}/${preview}.png`}
+            />
+            <span class={"text-center leading-none"}>{name}</span>
+          </button>
+        ))}
+      </div>
+    </Modal>
   );
 }
