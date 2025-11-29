@@ -1,4 +1,5 @@
-import { createPortal, type JSX } from "preact/compat";
+import { type JSX } from "preact/compat";
+import { Portal } from "./Portal";
 
 export const Modal = ({
   children,
@@ -12,8 +13,7 @@ export const Modal = ({
   title: string;
 }) => {
   return (
-    typeof document !== "undefined" &&
-    createPortal(
+    <Portal>
       <div
         class={
           "fixed bottom-0 left-0 right-0 top-0 flex items-center transition-opacity justify-center p-8 sm:p-16 bg-black/50"
@@ -45,9 +45,8 @@ export const Modal = ({
             {children}
           </div>
         </div>
-      </div>,
-      document.body
-    )
+      </div>
+    </Portal>
   );
 };
 
