@@ -356,7 +356,7 @@ function StickerListTile({
       }
       onClick={onClick}
     >
-      <img class={"h-auto w-20"} src={img} />
+      <img class={"h-auto w-20"} src={img} loading={"lazy"} />
       <span class={"text-center leading-none"}>{label}</span>
     </button>
   );
