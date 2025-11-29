@@ -36,6 +36,16 @@ function Editor() {
   const [characterName, setCharacterName] = useState("Klee");
   const [characterNum, setCharacterNum] = useState("1");
 
+  useEffect(() => {
+    const chars = Object.entries(data).filter(
+      ([char]) => !["hilichurl", "others"].includes(char)
+    );
+    const [id, { preview: n }] =
+      chars[Math.floor(Math.random() * chars.length)];
+    setCharacterName(id);
+    setCharacterNum(n);
+  }, []);
+
   return (
     <>
       <div class={"flex flex-col gap-8"}>
