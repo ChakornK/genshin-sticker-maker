@@ -31,8 +31,7 @@ function Editor() {
   const [fontSize, setFontSize] = useState(36);
   const [textContent, setTextContent] = useState("Hello!");
 
-  // TODO: hide by default
-  const [stickerPickerVisible, setStickerPickerVisible] = useState(true);
+  const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
 
   const [characterName, setCharacterName] = useState("Klee");
   const [characterNum, setCharacterNum] = useState("1");
