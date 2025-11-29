@@ -8,6 +8,7 @@ import "./style.css";
 import { Button } from "../../components/Button";
 import { Application, Assets, Sprite, Text } from "pixi.js";
 import { Modal } from "../../components/Modal";
+import type { JSX } from "preact/jsx-runtime";
 
 const RESOURCE_BASE_URL =
   "https://cdn.jsdelivr.net/gh/ChakornK/genshin-sticker-maker/assets";
@@ -33,6 +34,9 @@ function Editor() {
   // TODO: hide by default
   const [stickerPickerVisible, setStickerPickerVisible] = useState(true);
 
+  const [characterName, setCharacterName] = useState("Klee");
+  const [characterNum, setCharacterNum] = useState("1");
+
   return (
     <>
       <div class={"flex flex-col gap-8"}>
@@ -41,8 +45,8 @@ function Editor() {
         >
           <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
             <Preview
-              characterName="Klee"
-              characterNum="1"
+              characterName={characterName}
+              characterNum={characterNum}
               textContent={textContent}
               textSize={fontSize}
               textRotation={rotation}
@@ -108,6 +112,10 @@ function Editor() {
       <StickerPicker
         visible={stickerPickerVisible}
         setVisible={setStickerPickerVisible}
+        onChange={({ name, num }) => {
+          setCharacterName(name);
+          setCharacterNum(num);
+        }}
       />
     </>
   );
@@ -228,7 +236,7 @@ function Preview({
     return () => {
       window.removeEventListener("download-sticker", cb);
     };
-  }, []);
+  }, [characterName, characterNum]);
 
   return (
     <div
@@ -241,35 +249,106 @@ function Preview({
 function StickerPicker({
   visible,
   setVisible,
+  onChange,
 }: {
   visible: boolean;
   setVisible: (visible: boolean) => void;
+  onChange: (data: any) => void;
 }) {
+  const [showingCharList, setShowingCharList] = useState(true);
+  const [selectedChar, setSelectedChar] = useState("");
+
+  useEffect(() => {
+    if (visible) {
+      setShowingCharList(true);
+      setSelectedChar("");
+    }
+  }, [visible]);
+
   return (
     <Modal
       visible={visible}
       onClose={() => setVisible(false)}
       title="Select character"
     >
-      <div
-        class={
-          "grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
-        }
-      >
-        {Object.entries(data).map(([id, { name, preview }]) => (
-          <button
-            class={
-              "hover:bg-darker flex aspect-square cursor-pointer rounded-lg w-28 sm:w-32 flex-col items-center gap-1.5 justify-center"
-            }
-          >
-            <img
-              class={"h-auto w-20"}
-              src={`${RESOURCE_BASE_URL}/${id}/${preview}.png`}
-            />
-            <span class={"text-center leading-none"}>{name}</span>
-          </button>
-        ))}
-      </div>
+      <>
+        {/* list of characters */}
+        <StickerList visible={showingCharList}>
+          <>
+            {Object.entries(data).map(([id, { name, preview }]) => (
+              <StickerListTile
+                img={`${RESOURCE_BASE_URL}/${id}/${preview}.png`}
+                label={name}
+                onClick={() => {
+                  setShowingCharList(false);
+                  setSelectedChar(id);
+                }}
+              />
+            ))}
+          </>
+        </StickerList>
+        {/* list of stickers for a character */}
+        <StickerList visible={!showingCharList}>
+          <>
+            {selectedChar &&
+              Array.from({ length: data[selectedChar].count }).map((_, i) => (
+                <StickerListTile
+                  key={`${selectedChar}${i}`}
+                  img={`${RESOURCE_BASE_URL}/${selectedChar}/${i + 1}.png`}
+                  label={`${data[selectedChar].name} ${i + 1}`}
+                  onClick={() => {
+                    onChange({
+                      name: data[selectedChar].name,
+                      num: i + 1,
+                    });
+                    setVisible(false);
+                  }}
+                />
+              ))}
+          </>
+        </StickerList>
+      </>
     </Modal>
+  );
+}
+function StickerList({
+  children,
+  visible,
+}: {
+  children: JSX.Element;
+  visible: boolean;
+}) {
+  return (
+    <div
+      class={
+        "grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+      }
+      style={{
+        display: visible ? "" : "none",
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+function StickerListTile({
+  img,
+  label,
+  onClick,
+}: {
+  img: string;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      class={
+        "hover:bg-darker flex aspect-square cursor-pointer rounded-lg w-28 sm:w-32 flex-col items-center gap-1.5 justify-center"
+      }
+      onClick={onClick}
+    >
+      <img class={"h-auto w-20"} src={img} />
+      <span class={"text-center leading-none"}>{label}</span>
+    </button>
   );
 }
