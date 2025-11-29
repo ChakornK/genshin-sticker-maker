@@ -11,40 +11,43 @@ export const Modal = ({
   onClose: () => void;
   title: string;
 }) => {
-  return createPortal(
-    <div
-      class={
-        "fixed bottom-0 left-0 right-0 top-0 flex items-center transition-opacity justify-center p-8 sm:p-16 bg-black/50"
-      }
-      style={{
-        opacity: visible ? 1 : 0,
-        pointerEvents: visible ? "" : "none",
-      }}
-      onClick={onClose}
-    >
+  return (
+    typeof document !== "undefined" &&
+    createPortal(
       <div
         class={
-          "bg-dark relative flex max-h-full max-w-full flex-col items-stretch gap-2 rounded-xl p-2"
+          "fixed bottom-0 left-0 right-0 top-0 flex items-center transition-opacity justify-center p-8 sm:p-16 bg-black/50"
         }
-        onClick={(e) => e.stopPropagation()}
+        style={{
+          opacity: visible ? 1 : 0,
+          pointerEvents: visible ? "" : "none",
+        }}
+        onClick={onClose}
       >
-        <p class={"text-center text-2xl"}>{title}</p>
-        <button
-          class={"absolute right-3 top-3 cursor-pointer"}
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </button>
         <div
           class={
-            "min-h-24 min-w-48 h-full w-full overflow-y-auto overflow-x-hidden"
+            "bg-dark relative flex max-h-full max-w-full flex-col items-stretch gap-2 rounded-xl p-2"
           }
+          onClick={(e) => e.stopPropagation()}
         >
-          {children}
+          <p class={"text-center text-2xl"}>{title}</p>
+          <button
+            class={"absolute right-3 top-3 cursor-pointer"}
+            onClick={onClose}
+          >
+            <CloseIcon />
+          </button>
+          <div
+            class={
+              "min-h-24 min-w-48 h-full w-full overflow-y-auto overflow-x-hidden"
+            }
+          >
+            {children}
+          </div>
         </div>
-      </div>
-    </div>,
-    document.body
+      </div>,
+      document.body
+    )
   );
 };
 
