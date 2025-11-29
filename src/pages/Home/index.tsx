@@ -253,13 +253,13 @@ function StickerPicker({
     >
       <div
         class={
-          "grid grid-cols-3 gap-y-4 gap-x-2 sm:gap-x-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
+          "grid grid-cols-3 gap-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6"
         }
       >
         {Object.entries(data).map(([id, { name, preview }]) => (
           <button
             class={
-              "hover:bg-darker flex aspect-square cursor-pointer rounded-lg w-24 sm:w-28 flex-col items-center gap-1.5 justify-center"
+              "hover:bg-darker flex aspect-square cursor-pointer rounded-lg w-28 sm:w-32 flex-col items-center gap-1.5 justify-center"
             }
           >
             <img
