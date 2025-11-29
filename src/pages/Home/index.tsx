@@ -176,6 +176,12 @@ function Preview({
       setText(t);
       setReady(true);
     })();
+
+    return () => {
+      try {
+        app.destroy(true);
+      } catch {}
+    };
   }, []);
 
   useEffect(() => {
