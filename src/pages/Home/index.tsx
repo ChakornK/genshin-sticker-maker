@@ -24,9 +24,9 @@ export function Home() {
 
 function Editor() {
   const [x, setX] = useState(50);
-  const [y, setY] = useState(0);
+  const [y, setY] = useState(15);
   const [rotation, setRotation] = useState(0);
-  const [fontSize, setFontSize] = useState(24);
+  const [fontSize, setFontSize] = useState(36);
   const [textContent, setTextContent] = useState("Hello!");
 
   return (
