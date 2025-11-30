@@ -30,6 +30,7 @@ function Editor() {
   const [rotation, setRotation] = useState(0);
   const [fontSize, setFontSize] = useState(36);
   const [textContent, setTextContent] = useState("Hello!");
+  const [lineSpacing, setLineSpacing] = useState(1);
 
   const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
 
@@ -61,6 +62,7 @@ function Editor() {
               textRotation={rotation}
               textX={x}
               textY={y}
+              textLineSpacing={lineSpacing}
             />
             <Slider
               vertical
@@ -90,6 +92,14 @@ function Editor() {
               min={12}
               max={96}
               onChange={(v) => setFontSize(v)}
+            />
+
+            <p class={"mt-4"}>Line spacing</p>
+            <Slider
+              value={lineSpacing}
+              min={0.1}
+              max={20}
+              onChange={(v) => setLineSpacing(v)}
             />
 
             <p class={"mt-4"}>Text</p>
@@ -138,6 +148,7 @@ function Preview({
   textRotation,
   textX,
   textY,
+  textLineSpacing,
 }: {
   characterName: string;
   characterNum: string;
@@ -146,6 +157,7 @@ function Preview({
   textRotation: number;
   textX: number;
   textY: number;
+  textLineSpacing: number;
 }) {
   const [ready, setReady] = useState(false);
   const [app] = useState(new Application());
@@ -195,6 +207,7 @@ function Preview({
             color: 0xffffff,
             width: 8,
           },
+          lineHeight: textLineSpacing * textSize,
         },
         text: textContent,
         x: (textX / 100) * app.screen.width,
@@ -231,7 +244,17 @@ function Preview({
     text.angle = textRotation;
     text.x = (textX / 100) * app.screen.width;
     text.y = (textY / 100) * app.screen.height;
-  }, [ready, text, textContent, textSize, textRotation, textX, textY]);
+    text.style.lineHeight = textLineSpacing * textSize;
+  }, [
+    ready,
+    text,
+    textContent,
+    textSize,
+    textRotation,
+    textX,
+    textY,
+    textLineSpacing,
+  ]);
 
   useEffect(() => {
     const cb = () => {
