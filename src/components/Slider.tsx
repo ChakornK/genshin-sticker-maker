@@ -19,7 +19,7 @@ export const Slider = ({
   const parentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onMousemove = (e: MouseEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       if (dragging) {
         const bounds = parentRef.current!.getBoundingClientRect();
         onChange(
@@ -33,23 +33,23 @@ export const Slider = ({
         );
       }
     };
-    document.addEventListener("mousemove", onMousemove);
+    document.addEventListener("pointermove", onPointerMove);
 
     return () => {
-      document.removeEventListener("mousemove", onMousemove);
+      document.removeEventListener("pointermove", onPointerMove);
     };
-  }, [dragging]);
+  }, [dragging, onChange, vertical]);
 
   useEffect(() => {
-    const onMouseup = () => {
+    const onPointerUp = () => {
       setDragging(false);
     };
-    document.addEventListener("mouseup", onMouseup);
+    document.addEventListener("pointerup", onPointerUp);
 
     return () => {
-      document.removeEventListener("mouseup", onMouseup);
+      document.removeEventListener("pointerup", onPointerUp);
     };
-  }, []);
+  }, [setDragging]);
 
   return (
     <div
@@ -73,7 +73,7 @@ export const Slider = ({
                 top: "50%",
               }
         }
-        onMouseDown={() => setDragging(true)}
+        onPointerDown={() => setDragging(true)}
       ></button>
     </div>
   );
