@@ -51,6 +51,17 @@ export const Slider = ({
     };
   }, [setDragging]);
 
+  useEffect(() => {
+    const onDocumentBlur = () => {
+      setDragging(false);
+    };
+    document.addEventListener("blur", onDocumentBlur);
+
+    return () => {
+      document.removeEventListener("blur", onDocumentBlur);
+    };
+  }, [setDragging]);
+
   return (
     <div
       class={`${
