@@ -73,19 +73,13 @@ export const Slider = ({
         class={
           "slider-thumb absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2"
         }
-        style={
-          vertical
-            ? {
-                top: `${((value - min) / (max - min)) * 100}%`,
-                left: "50%",
-              }
-            : {
-                left: `${((value - min) / (max - min)) * 100}%`,
-                top: "50%",
-              }
-        }
+        style={{
+          top: vertical ? `${((value - min) / (max - min)) * 100}%` : "50%",
+          left: vertical ? "50%" : `${((value - min) / (max - min)) * 100}%`,
+          cursor: dragging ? "grabbing" : "grab",
+        }}
         onPointerDown={() => setDragging(true)}
-      ></button>
+      />
     </div>
   );
 };
