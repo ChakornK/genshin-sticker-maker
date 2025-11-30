@@ -31,6 +31,7 @@ function Editor() {
   const [fontSize, setFontSize] = useState(36);
   const [textContent, setTextContent] = useState("Hello!");
   const [lineSpacing, setLineSpacing] = useState(1);
+  const [letterSpacing, setLetterSpacing] = useState(0);
 
   const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
 
@@ -63,6 +64,7 @@ function Editor() {
               textX={x}
               textY={y}
               textLineSpacing={lineSpacing}
+              textLetterSpacing={letterSpacing}
             />
             <Slider
               vertical
@@ -100,6 +102,14 @@ function Editor() {
               min={0.1}
               max={20}
               onChange={(v) => setLineSpacing(v)}
+            />
+
+            <p class={"mt-4"}>Letter spacing</p>
+            <Slider
+              value={letterSpacing}
+              min={-0.5}
+              max={1}
+              onChange={(v) => setLetterSpacing(v)}
             />
 
             <p class={"mt-4"}>Text</p>
@@ -149,6 +159,7 @@ function Preview({
   textX,
   textY,
   textLineSpacing,
+  textLetterSpacing,
 }: {
   characterName: string;
   characterNum: string;
@@ -158,6 +169,7 @@ function Preview({
   textX: number;
   textY: number;
   textLineSpacing: number;
+  textLetterSpacing: number;
 }) {
   const [ready, setReady] = useState(false);
   const [app] = useState(new Application());
@@ -208,6 +220,7 @@ function Preview({
             width: 8,
           },
           lineHeight: textLineSpacing * textSize,
+          letterSpacing: textLetterSpacing * textSize,
         },
         text: textContent,
         x: (textX / 100) * app.screen.width,
@@ -245,6 +258,7 @@ function Preview({
     text.x = (textX / 100) * app.screen.width;
     text.y = (textY / 100) * app.screen.height;
     text.style.lineHeight = textLineSpacing * textSize;
+    text.style.letterSpacing = textLetterSpacing * textSize;
   }, [
     ready,
     text,
@@ -254,6 +268,7 @@ function Preview({
     textX,
     textY,
     textLineSpacing,
+    textLetterSpacing,
   ]);
 
   useEffect(() => {
