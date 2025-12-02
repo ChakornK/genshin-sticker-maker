@@ -1,16 +1,8 @@
-# Preact quickstart template
+# Genshin Sticker Maker
 
-## Features
+Inspired by [PJSK Sticker Maker](https://st.ayaka.one)
 
-- Yarn
-- Preact
-- Vite
-- Prerendering
-- TypeScript
-- TailwindCSS
-- Catppuccin color palette
-
-## Getting Started
+## Development
 
 - `npm run dev` - Starts a dev server at http://localhost:5173/
 
