@@ -53,37 +53,41 @@ function Editor() {
 
   return (
     <>
-      <div class={"flex flex-col gap-8"}>
+      <div class={"flex flex-col gap-4"}>
         <div
-          class={"flex flex-col items-center gap-8 sm:flex-row sm:items-start"}
+          class={
+            "sm:*:w-1/2 *:w-full flex flex-col items-center gap-8 sm:flex-row sm:items-start"
+          }
         >
-          <div class={"grid grid-cols-[2fr_2em] grid-rows-[2fr_2em]"}>
-            <Preview
-              characterName={characterName}
-              characterNum={characterNum}
-              textContent={textContent}
-              textSize={fontSize}
-              textRotation={rotation}
-              textX={x}
-              textY={y}
-              textLineSpacing={lineSpacing}
-              textLetterSpacing={letterSpacing}
-              textColor={textColor}
-            />
-            <Slider
-              vertical
-              value={y}
-              min={0}
-              max={100}
-              onChange={(v) => setY(v)}
-            />
-            <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+          <div>
+            <div
+              class={
+                "mx-auto grid w-[fit-content_!important] grid-cols-[2fr_2em] grid-rows-[2fr_2em]"
+              }
+            >
+              <Preview
+                characterName={characterName}
+                characterNum={characterNum}
+                textContent={textContent}
+                textSize={fontSize}
+                textRotation={rotation}
+                textX={x}
+                textY={y}
+                textLineSpacing={lineSpacing}
+                textLetterSpacing={letterSpacing}
+                textColor={textColor}
+              />
+              <Slider
+                vertical
+                value={y}
+                min={0}
+                max={100}
+                onChange={(v) => setY(v)}
+              />
+              <Slider value={x} min={0} max={100} onChange={(v) => setX(v)} />
+            </div>
           </div>
-          <div
-            class={
-              "max-w-2xs flex w-full grow flex-col items-stretch sm:max-w-full"
-            }
-          >
+          <div class={"max-w-2xs flex flex-col items-stretch sm:max-w-full"}>
             <p>Rotation</p>
             <Slider
               value={rotation}
@@ -115,8 +119,15 @@ function Editor() {
               max={1}
               onChange={(v) => setLetterSpacing(v)}
             />
-
-            <p class={"mt-4"}>Text</p>
+          </div>
+        </div>
+        <div
+          class={
+            "sm:*:w-1/2 w-full *:max-w-2xs sm:*:max-w-full flex flex-col items-center gap-8 sm:flex-row-reverse sm:items-start *:flex *:flex-col *:items-stretch"
+          }
+        >
+          <div>
+            <p>Text</p>
             <textarea
               class={"mt-2 rounded-lg bg-black/30 p-2"}
               value={textContent}
@@ -125,10 +136,15 @@ function Editor() {
               }
             />
           </div>
+
+          <div>
+            <p class={"mb-2"}>Text color</p>
+            <ColorPicker onChange={(color) => setTextColor(colors[color])} />
+          </div>
         </div>
         <div
           class={
-            "flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
+            "flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8 mt-4"
           }
         >
           <Button type="change" onClick={() => setStickerPickerVisible(true)}>
@@ -411,5 +427,19 @@ function StickerListTile({
       </div>
       <span class={"text-center leading-none"}>{label}</span>
     </button>
+  );
+}
+
+function ColorPicker({ onChange }: { onChange: (color: string) => void }) {
+  return (
+    <div class={"flex flex-wrap gap-2"}>
+      {Object.entries(colors).map(([color, hex]) => (
+        <button
+          class={"aspect-square h-8 w-8 cursor-pointer rounded-full"}
+          style={{ backgroundColor: hex }}
+          onClick={() => onChange(color)}
+        />
+      ))}
+    </div>
   );
 }
