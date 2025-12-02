@@ -16,7 +16,7 @@ const RESOURCE_BASE_URL =
 
 export function Home() {
   return (
-    <main className={"flex h-full flex-col items-center gap-8 p-8"}>
+    <main className={"flex min-h-full flex-col items-center gap-8 p-8"}>
       <h1 class={"text-center text-4xl sm:text-6xl"}>Genshin Sticker Maker</h1>
       <div class={"w-full max-w-2xl grow"}>
         <Editor />
