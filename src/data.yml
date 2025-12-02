@@ -2,459 +2,574 @@ aether:
   name: Aether
   preview: 20
   count: 20
+  color: red
 aino:
   name: Aino
   preview: 3
   count: 4
+  color: blue
 albedo:
   name: Albedo
   preview: 6
   count: 10
+  color: yellow
 alhaitham:
   name: Alhaitham
   preview: 3
   count: 4
+  color: green
 amber:
   name: Amber
   preview: 4
   count: 4
+  color: red
 arlecchino:
   name: Arlecchino
   preview: 6
   count: 7
+  color: red
 ayaka:
   name: Ayaka
   preview: 2
   count: 11
+  color: sky
 ayato:
   name: Ayato
   preview: 4
   count: 5
+  color: blue
 baizhu:
   name: Baizhu
   preview: 4
   count: 4
+  color: green
 barbara:
   name: Barbara
   preview: 3
   count: 4
+  color: blue
 beidou:
   name: Beidou
   preview: 1
   count: 2
+  color: purple
 bennett:
   name: Bennett
   preview: 3
   count: 3
+  color: red
 candace:
   name: Candace
   preview: 5
   count: 5
+  color: blue
 charlotte:
   name: Charlotte
   preview: 2
   count: 6
+  color: sky
 chasca:
   name: Chasca
   preview: 2
   count: 7
+  color: teal
 chevreuse:
   name: Chevreuse
   preview: 1
   count: 5
+  color: red
 chiori:
   name: Chiori
   preview: 1
   count: 4
+  color: yellow
 chlorinde:
   name: Chlorinde
   preview: 1
   count: 5
+  color: purple
 chongyun:
   name: Chongyun
   preview: 1
   count: 2
+  color: sky
 citlali:
   name: Citlali
   preview: 3
   count: 9
+  color: sky
 collei:
   name: Collei
   preview: 9
   count: 9
+  color: green
 columbina:
   name: Columbina
   preview: 1
   count: 2
+  color: sky
 cyno:
   name: Cyno
   preview: 1
   count: 11
+  color: purple
 dahlia:
   name: Dahlia
   preview: 1
   count: 4
+  color: blue
 dainsleif:
   name: Dainsleif
   preview: 2
   count: 4
+  color: neutral
 dehya:
   name: Dehya
   preview: 3
   count: 4
+  color: red
 diluc:
   name: Diluc
   preview: 1
   count: 2
+  color: red
 diona:
   name: Diona
   preview: 3
   count: 7
+  color: sky
 dori:
   name: Dori
   preview: 1
   count: 5
+  color: purple
 durin:
   name: Durin
   preview: 1
   count: 3
+  color: red
 emilie:
   name: Emilie
   preview: 1
   count: 4
+  color: green
 escoffier:
   name: Escoffier
   preview: 2
   count: 4
+  color: sky
 eula:
   name: Eula
   preview: 1
   count: 12
+  color: sky
 faruzan:
   name: Faruzan
   preview: 3
   count: 6
+  color: teal
 fischl:
   name: Fischl
   preview: 5
   count: 5
+  color: purple
 flins:
   name: Flins
   preview: 2
   count: 4
+  color: purple
 freminet:
   name: Freminet
   preview: 1
   count: 8
+  color: sky
 furina:
   name: Furina
   preview: 3
   count: 6
+  color: blue
 gaming:
   name: Gaming
   preview: 5
   count: 7
+  color: red
 ganyu:
   name: Ganyu
   preview: 8
   count: 8
+  color: sky
 gorou:
   name: Gorou
   preview: 1
   count: 5
+  color: yellow
 heizou:
   name: Heizou
   preview: 4
   count: 5
+  color: teal
 hutao:
   name: Hu Tao
   preview: 20
   count: 21
+  color: red
 iansan:
   name: Iansan
   preview: 2
   count: 6
+  color: purple
 ifa:
   name: Ifa
   preview: 3
   count: 7
+  color: teal
 ineffa:
   name: Ineffa
   preview: 1
   count: 4
+  color: purple
 itto:
   name: Itto
   preview: 1
   count: 10
+  color: yellow
 jahoda:
   name: Jahoda
   preview: 1
   count: 3
+  color: red
 jean:
   name: Jean
   preview: 6
   count: 8
+  color: teal
 kachina:
   name: Kachina
   preview: 1
   count: 5
+  color: yellow
 kaeya:
   name: Kaeya
   preview: 2
   count: 6
+  color: sky
 kaveh:
   name: Kaveh
   preview: 2
   count: 9
+  color: green
 kazuha:
   name: Kazuha
   preview: 3
   count: 9
+  color: teal
 keqing:
   name: Keqing
   preview: 6
   count: 15
+  color: purple
 kinich:
   name: Kinich
   preview: 4
   count: 8
+  color: green
 kirara:
   name: Kirara
   preview: 1
   count: 8
+  color: green
 klee:
   name: Klee
   preview: 7
   count: 7
+  color: red
 kokomi:
   name: Kokomi
   preview: 8
   count: 11
+  color: blue
 kuki:
   name: Kuki Shinobu
   preview: 1
   count: 4
+  color: purple
 lanyan:
   name: Lanyan
   preview: 3
   count: 3
+  color: teal
 lauma:
   name: Lauma
   preview: 4
   count: 4
+  color: green
 layla:
   name: Layla
   preview: 5
   count: 5
+  color: sky
 lisa:
   name: Lisa
   preview: 2
   count: 3
+  color: purple
 lumine:
   name: Lumine
   preview: 8
   count: 8
+  color: yellow
 lynette:
   name: Lynette
   preview: 10
   count: 10
+  color: teal
 lyney:
   name: Lyney
   preview: 5
   count: 9
+  color: red
 mavuika:
   name: Mavuika
   preview: 1
   count: 7
+  color: red
 mika:
   name: Mika
   preview: 4
   count: 4
+  color: sky
 miko:
   name: Miko
   preview: 4
   count: 10
+  color: purple
 mizuki:
   name: Mizuki
   preview: 5
   count: 6
+  color: teal
 mona:
   name: Mona
   preview: 1
   count: 8
+  color: blue
 mualani:
   name: Mualani
   preview: 2
   count: 6
+  color: blue
 nahida:
   name: Nahida
   preview: 5
   count: 9
+  color: green
 navia:
   name: Navia
   preview: 3
   count: 9
+  color: yellow
 nefer:
   name: Nefer
   preview: 5
   count: 5
+  color: green
 neuvillette:
   name: Neuvillette
   preview: 1
   count: 6
+  color: blue
 nilou:
   name: Nilou
   preview: 1
   count: 6
+  color: blue
 ningguang:
   name: Ningguang
   preview: 1
   count: 3
+  color: yellow
 noelle:
   name: Noelle
   preview: 1
   count: 1
+  color: pink
 ororon:
   name: Ororon
   preview: 3
   count: 8
+  color: purple
 paimon:
   name: Paimon
   preview: 20
   count: 35
+  color: neutral
 qiqi:
   name: Qiqi
   preview: 2
   count: 3
+  color: sky
 raiden:
   name: Raiden
   preview: 7
   count: 13
+  color: purple
 razor:
   name: Razor
   preview: 1
   count: 3
+  color: purple
 rosaria:
   name: Rosaria
   preview: 1
   count: 5
+  color: sky
 sandrone:
   name: Sandrone
   preview: 1
   count: 2
+  color: yellow
 sara:
   name: Kujou Sara
   preview: 4
   count: 4
+  color: purple
 sayu:
   name: Sayu
   preview: 3
   count: 5
+  color: teal
 sethos:
   name: Sethos
   preview: 2
   count: 6
+  color: purple
 shenhe:
   name: Shenhe
   preview: 3
   count: 6
+  color: sky
 sigewinne:
   name: Sigewinne
   preview: 1
   count: 4
+  color: blue
 skirk:
   name: Skirk
   preview: 1
   count: 4
+  color: sky
 sucrose:
   name: Sucrose
   preview: 10
   count: 10
+  color: teal
 tartaglia:
   name: Tartaglia
   preview: 8
   count: 13
+  color: blue
 thoma:
   name: Thoma
   preview: 1
   count: 7
+  color: red
 tighnari:
   name: Tighnari
   preview: 7
   count: 8
+  color: green
 varesa:
   name: Varesa
   preview: 2
   count: 4
+  color: pink
 varka:
   name: Varka
   preview: 1
   count: 1
+  color: teal
 venti:
   name: Venti
   preview: 15
   count: 15
+  color: teal
 wanderer:
   name: Wanderer
   preview: 4
   count: 9
+  color: teal
 wriothesley:
   name: Wriothesley
   preview: 1
   count: 5
+  color: sky
 xiangling:
   name: Xiangling
   preview: 1
   count: 5
+  color: red
 xianyun:
   name: Xianyun
   preview: 2
   count: 8
+  color: teal
 xiao:
   name: Xiao
   preview: 11
   count: 13
+  color: teal
 xilonen:
   name: Xilonen
   preview: 4
   count: 5
+  color: yellow
 xingqiu:
   name: Xingqiu
   preview: 1
   count: 5
+  color: blue
 xinyan:
   name: Xinyan
   preview: 3
   count: 8
+  color: red
 yanfei:
   name: Yanfei
   preview: 2
   count: 7
+  color: red
 yaoyao:
   name: Yaoyao
   preview: 3
   count: 8
+  color: green
 yelan:
   name: Yelan
   preview: 4
   count: 7
+  color: blue
 yoimiya:
   name: Yoimiya
   preview: 1
-  count: 12
+  count:
+    color: red
 yunjin:
   name: Yunjin
   preview: 1
   count: 4
+  color: yellow
 zhongli:
   name: Zhongli
   preview: 7
   count: 7
+  color: yellow
 hilichurl:
   name: Hilichurl
   preview: 8
   count: 35
+  color: neutral
 others:
   name: Others
   preview: 28
   count: 55
+  color: neutral

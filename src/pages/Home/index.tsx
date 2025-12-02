@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { Slider } from "../../components/Slider";
 
 import data from "../../data.yml";
+import colors from "../../colors.yml";
 
 import "./style.css";
 import { Button } from "../../components/Button";
@@ -32,6 +33,7 @@ function Editor() {
   const [textContent, setTextContent] = useState("Hello!");
   const [lineSpacing, setLineSpacing] = useState(1);
   const [letterSpacing, setLetterSpacing] = useState(0);
+  const [textColor, setTextColor] = useState("#000000");
 
   const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
 
@@ -42,10 +44,11 @@ function Editor() {
     const chars = Object.entries(data).filter(
       ([char]) => !["hilichurl", "others"].includes(char)
     );
-    const [id, { preview: n }] =
+    const [id, { preview: n, color }] =
       chars[Math.floor(Math.random() * chars.length)];
     setCharacterName(id);
     setCharacterNum(n);
+    setTextColor(colors[color]);
   }, []);
 
   return (
@@ -65,6 +68,7 @@ function Editor() {
               textY={y}
               textLineSpacing={lineSpacing}
               textLetterSpacing={letterSpacing}
+              textColor={textColor}
             />
             <Slider
               vertical
@@ -141,9 +145,11 @@ function Editor() {
       <StickerPicker
         visible={stickerPickerVisible}
         setVisible={setStickerPickerVisible}
-        onChange={({ name, num }) => {
+        onChange={({ name, num, color }) => {
           setCharacterName(name);
           setCharacterNum(num);
+          console.log(color, colors);
+          setTextColor(colors[color]);
         }}
       />
     </>
@@ -160,6 +166,7 @@ function Preview({
   textY,
   textLineSpacing,
   textLetterSpacing,
+  textColor,
 }: {
   characterName: string;
   characterNum: string;
@@ -170,6 +177,7 @@ function Preview({
   textY: number;
   textLineSpacing: number;
   textLetterSpacing: number;
+  textColor: string;
 }) {
   const [ready, setReady] = useState(false);
   const [app] = useState(new Application());
@@ -221,6 +229,7 @@ function Preview({
           },
           lineHeight: textLineSpacing * textSize,
           letterSpacing: textLetterSpacing * textSize,
+          fill: textColor,
         },
         text: textContent,
         x: (textX / 100) * app.screen.width,
@@ -259,6 +268,7 @@ function Preview({
     text.y = (textY / 100) * app.screen.height;
     text.style.lineHeight = textLineSpacing * textSize;
     text.style.letterSpacing = textLetterSpacing * textSize;
+    text.style.fill = textColor;
   }, [
     ready,
     text,
@@ -269,6 +279,7 @@ function Preview({
     textY,
     textLineSpacing,
     textLetterSpacing,
+    textColor,
   ]);
 
   useEffect(() => {
@@ -347,6 +358,7 @@ function StickerPicker({
                     onChange({
                       name: data[selectedChar].name,
                       num: i + 1,
+                      color: data[selectedChar].color,
                     });
                     setVisible(false);
                   }}
