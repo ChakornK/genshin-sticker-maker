@@ -16,11 +16,28 @@ const RESOURCE_BASE_URL =
 
 export function Home() {
   return (
-    <main className={"flex min-h-full flex-col items-center gap-8 p-8"}>
-      <h1 class={"text-center text-4xl sm:text-6xl"}>Genshin Sticker Maker</h1>
-      <div class={"w-full max-w-2xl grow"}>
-        <Editor />
+    <main
+      className={
+        "flex min-h-full flex-col items-center justify-between gap-16 p-8"
+      }
+    >
+      <div class={"flex flex-col items-center gap-8"}>
+        <h1 class={"text-center text-4xl sm:text-6xl"}>
+          Genshin Sticker Maker
+        </h1>
+        <div class={"w-full max-w-2xl grow"}>
+          <Editor />
+        </div>
       </div>
+      <a
+        href={`https://github.com/ChakornK/genshin-sticker-maker?utm_source=${
+          location.host || ""
+        }`}
+        target={"_blank"}
+        class={"hover:text-accent underline"}
+      >
+        Source code
+      </a>
     </main>
   );
 }
