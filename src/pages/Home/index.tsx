@@ -139,7 +139,7 @@ function Editor() {
 
           <div>
             <p class={"mb-2"}>Text color</p>
-            <ColorPicker onChange={(color) => setTextColor(colors[color])} />
+            <ColorPicker onChange={(color) => setTextColor(color)} />
           </div>
         </div>
         <div
@@ -165,7 +165,7 @@ function Editor() {
           setCharacterName(name);
           setCharacterNum(num);
           console.log(color, colors);
-          setTextColor(colors[color]);
+          setTextColor(color);
         }}
       />
     </>
@@ -327,7 +327,15 @@ function StickerPicker({
 }: {
   visible: boolean;
   setVisible: (visible: boolean) => void;
-  onChange: (data: any) => void;
+  onChange: ({
+    name,
+    num,
+    color,
+  }: {
+    name: string;
+    num: string;
+    color: string;
+  }) => void;
 }) {
   const [showingCharList, setShowingCharList] = useState(true);
   const [selectedChar, setSelectedChar] = useState("");
@@ -373,8 +381,8 @@ function StickerPicker({
                   onClick={() => {
                     onChange({
                       name: data[selectedChar].name,
-                      num: i + 1,
-                      color: data[selectedChar].color,
+                      num: (i + 1).toString(),
+                      color: colors[data[selectedChar].color],
                     });
                     setVisible(false);
                   }}
@@ -430,16 +438,47 @@ function StickerListTile({
   );
 }
 
+const getRainbow = () => {
+  const r = Object.keys(colors)
+    .filter((c) =>
+      ["red", "yellow", "green", "teal", "sky", "blue", "purple"].includes(c)
+    )
+    .map((c) => colors[c]);
+  r.push(r[0]);
+  return r;
+};
 function ColorPicker({ onChange }: { onChange: (color: string) => void }) {
+  const colorPickerRef = useRef<HTMLInputElement>(null);
+
   return (
     <div class={"flex flex-wrap gap-2"}>
       {Object.entries(colors).map(([color, hex]) => (
         <button
           class={"aspect-square h-8 w-8 cursor-pointer rounded-full"}
           style={{ backgroundColor: hex }}
-          onClick={() => onChange(color)}
+          onClick={() => onChange(hex)}
         />
       ))}
+      <button
+        class={
+          "aspect-square h-8 w-8 relative cursor-pointer overflow-hidden rounded-full"
+        }
+        onClick={() => colorPickerRef.current!.click()}
+      >
+        <div
+          class={"absolute -inset-2"}
+          style={{
+            filter: "blur(2px)",
+            backgroundImage: `conic-gradient(${getRainbow().join(",")})`,
+          }}
+        ></div>
+        <input
+          ref={colorPickerRef}
+          type="color"
+          class={"pointer-events-none"}
+          onChange={(e) => onChange((e.target as HTMLInputElement).value)}
+        />
+      </button>
     </div>
   );
 }
