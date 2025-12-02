@@ -62,6 +62,19 @@ export const Slider = ({
     };
   }, [setDragging]);
 
+  useEffect(() => {
+    const onTouchMove = (e: PointerEvent) => {
+      if (dragging) {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
+
+    return () => {
+      document.removeEventListener("touchmove", onTouchMove);
+    };
+  }, [dragging]);
+
   return (
     <div
       class={`${
