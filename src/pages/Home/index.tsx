@@ -11,8 +11,7 @@ import { Application, Assets, Sprite, Text } from "pixi.js";
 import { Modal } from "../../components/Modal";
 import type { JSX } from "preact/jsx-runtime";
 
-const RESOURCE_BASE_URL =
-  "https://cdn.jsdelivr.net/gh/ChakornK/genshin-sticker-maker/assets";
+const RESOURCE_BASE_URL = process.env.VITE_RESOURCE_BASE_URL || "";
 
 export function Home() {
   return (
