@@ -1,9 +1,12 @@
 export function NotFound() {
   return (
-    <main className="flex h-full flex-col items-center justify-center p-8">
-      <div className="bg-linear-to-r from-ctp-peach-400 to-ctp-green-400 flex flex-col items-center bg-clip-text font-medium text-transparent">
-        <h1 className="text-6xl">404 not found</h1>
-        <p className="text-2xl">What a disaster</p>
+    <main class={"flex h-full flex-col items-center justify-center p-8"}>
+      <div class={"flex flex-col items-center font-medium"}>
+        <h1 class={"text-6xl"}>404</h1>
+        <p class={"text-2xl"}>Page not found</p>
+        <a href="/" class={"hover:text-accent mt-4 underline"}>
+          Back to home page
+        </a>
       </div>
     </main>
   );
