@@ -289,6 +289,7 @@ function Preview({
       img.onload = () => {
         sprite.setAttr("image", img);
       };
+      img.crossOrigin = "anonymous";
       img.src = `${RESOURCE_BASE_URL}/${characterName.toLowerCase()}/${characterNum}.png`;
     })();
   }, [ready, sprite, characterName, characterNum]);
