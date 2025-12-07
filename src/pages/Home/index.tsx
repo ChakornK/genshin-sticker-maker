@@ -7,9 +7,13 @@ import colors from "../../colors.yml";
 
 import "./style.css";
 import { Button } from "../../components/Button";
-import { Application, Assets, Sprite, Text } from "pixi.js";
 import { Modal } from "../../components/Modal";
 import type { JSX } from "preact/jsx-runtime";
+
+import { Stage as KonvaStage } from "konva/lib/Stage";
+import { Image as KonvaImage } from "konva/lib/shapes/Image";
+import { Text as KonvaText } from "konva/lib/shapes/Text";
+import { Layer as KonvaLayer } from "konva/lib/Layer";
 
 const RESOURCE_BASE_URL = import.meta.env.VITE_RESOURCE_BASE_URL || "assets";
 
@@ -211,62 +215,60 @@ function Preview({
   textColor: string;
 }) {
   const [ready, setReady] = useState(false);
-  const [app] = useState(new Application());
+  const [stage, setStage] = useState<KonvaStage>(null);
   const appContainer = useRef<HTMLDivElement>(null);
 
-  const [sprite, setSprite] = useState<Sprite>(null);
-  const [text, setText] = useState<Text>(null);
+  const [sprite, setSprite] = useState<KonvaImage>(null);
+  const [text, setText] = useState<KonvaText>(null);
 
   useEffect(() => {
     (async () => {
-      if (document.getElementById("preview-canvas")) return;
-
-      await app.init({
-        resizeTo: appContainer.current!,
-        antialias: true,
-        webgl: {
-          antialias: true,
-        },
-        backgroundColor: 0x000000,
+      const stage = new KonvaStage({
+        container: appContainer.current!,
+        width: appContainer.current!.clientWidth,
+        height: appContainer.current!.clientHeight,
         backgroundAlpha: 0,
-        resolution: 2,
+        listening: false,
       });
-      app.canvas.id = "preview-canvas";
-      appContainer.current!.appendChild(app.canvas);
+      stage.listening(false);
+      setStage(stage);
 
-      const s = new Sprite({
-        anchor: { x: 0.5, y: 0.5 },
-        width: app.screen.width,
-        height: app.screen.height,
-        x: app.screen.width / 2,
-        y: app.screen.height / 2,
+      const layer = new KonvaLayer({
+        listening: false,
       });
-      app.stage.addChild(s);
+      stage.add(layer);
 
-      await Assets.load({
-        src: `${RESOURCE_BASE_URL}/YurukaStd.woff2`,
-        data: { family: "Yuruka" },
+      const s = new KonvaImage({
+        x: 0,
+        y: 0,
+        width: stage.width(),
+        height: stage.height(),
+        image: null,
       });
-      const t = new Text({
-        anchor: { x: 0.5, y: 0.5 },
-        angle: textRotation,
-        style: {
-          fontFamily: "Yuruka",
-          fontSize: textSize,
-          align: "center",
-          stroke: {
-            color: 0xffffff,
-            width: 8,
-          },
-          lineHeight: textLineSpacing * textSize,
-          letterSpacing: textLetterSpacing * textSize,
-          fill: textColor,
-        },
-        text: textContent,
-        x: (textX / 100) * app.screen.width,
-        y: (textY / 100) * app.screen.height,
+
+      if (!document.getElementById("yuruka-font-face")) {
+        const css = document.createElement("style");
+        css.id = "yuruka-font-face";
+        css.innerHTML = `@font-face {
+          font-family: 'Yuruka';
+          src: url('${RESOURCE_BASE_URL}/YurukaStd.woff2') format('truetype');
+        }`;
+        document.head.appendChild(css);
+      }
+      if (!document.fonts.check("12px Yuruka")) {
+        await document.fonts.load("12px Yuruka");
+      }
+
+      const t = new KonvaText({
+        fontFamily: "Yuruka",
+        align: "center",
+        verticalAlign: "middle",
+        stroke: "#ffffff",
+        strokeWidth: 8,
+        fillAfterStrokeEnabled: true,
       });
-      app.stage.addChild(t);
+
+      layer.add(s, t);
 
       setSprite(s);
       setText(t);
@@ -275,7 +277,7 @@ function Preview({
 
     return () => {
       try {
-        app.destroy(true);
+        stage.destroy();
       } catch {}
     };
   }, []);
@@ -283,23 +285,28 @@ function Preview({
   useEffect(() => {
     (async () => {
       if (!ready || !sprite) return;
-      const tex = await Assets.load(
-        `${RESOURCE_BASE_URL}/${characterName.toLowerCase()}/${characterNum}.png`
-      );
-      sprite.texture = tex;
+      const img = new Image();
+      img.onload = () => {
+        sprite.setAttr("image", img);
+      };
+      img.src = `${RESOURCE_BASE_URL}/${characterName.toLowerCase()}/${characterNum}.png`;
     })();
   }, [ready, sprite, characterName, characterNum]);
 
   useEffect(() => {
     if (!ready || !text) return;
-    text.text = textContent;
-    text.style.fontSize = textSize;
-    text.angle = textRotation;
-    text.x = (textX / 100) * app.screen.width;
-    text.y = (textY / 100) * app.screen.height;
-    text.style.lineHeight = textLineSpacing * textSize;
-    text.style.letterSpacing = textLetterSpacing * textSize;
-    text.style.fill = textColor;
+    text.setAttrs({
+      x: (textX / 100) * stage.width(),
+      y: (textY / 100) * stage.height(),
+      text: textContent,
+      rotation: textRotation,
+      fontSize: textSize,
+      lineHeight: textLineSpacing,
+      letterSpacing: textLetterSpacing * textSize,
+      fill: textColor,
+    });
+    text.offsetX(text.width() / 2);
+    text.offsetY(text.height() / 2);
   }, [
     ready,
     text,
@@ -315,10 +322,15 @@ function Preview({
 
   useEffect(() => {
     const cb = () => {
-      if (!app?.renderer?.extract) return;
-      app.renderer.extract.download({
-        target: app.stage,
-        filename: `${characterName}${characterNum}_${Date.now()}.png`,
+      stage.toBlob({
+        mimeType: "image/png",
+        callback(blob) {
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = `${characterName}${characterNum}_${Date.now()}.png`;
+          a.click();
+          URL.revokeObjectURL(a.href);
+        },
       });
     };
     window.addEventListener("download-sticker", cb);
@@ -330,7 +342,9 @@ function Preview({
   return (
     <div
       ref={appContainer}
-      class={"bg-darker *:w-full *:h-full h-64 w-64 rounded-xl"}
+      class={
+        "bg-darker *:w-full *:h-full pointer-events-none h-64 w-64 rounded-xl"
+      }
     ></div>
   );
 }
