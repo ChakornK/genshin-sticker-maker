@@ -551,8 +551,8 @@ yelan:
 yoimiya:
   name: Yoimiya
   preview: 1
-  count:
-    color: red
+  count: 12
+  color: red
 yunjin:
   name: Yunjin
   preview: 1
