@@ -228,6 +228,7 @@ function Preview({
         width: appContainer.current!.clientWidth,
         height: appContainer.current!.clientHeight,
         backgroundAlpha: 0,
+        listening: false,
       });
       stage.listening(false);
       setStage(stage);
