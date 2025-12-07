@@ -180,7 +180,6 @@ function Editor() {
         onChange={({ name, num, color }) => {
           setCharacterName(name);
           setCharacterNum(num);
-          console.log(color, colors);
           setTextColor(color);
         }}
       />
