@@ -11,7 +11,7 @@ import { Application, Assets, Sprite, Text } from "pixi.js";
 import { Modal } from "../../components/Modal";
 import type { JSX } from "preact/jsx-runtime";
 
-const RESOURCE_BASE_URL = process.env.VITE_RESOURCE_BASE_URL || "";
+const RESOURCE_BASE_URL = import.meta.env.VITE_RESOURCE_BASE_URL || "";
 
 export function Home() {
   return (
