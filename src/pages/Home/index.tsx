@@ -342,7 +342,9 @@ function Preview({
   return (
     <div
       ref={appContainer}
-      class={"bg-darker *:w-full *:h-full h-64 w-64 rounded-xl"}
+      class={
+        "bg-darker *:w-full *:h-full pointer-events-none h-64 w-64 rounded-xl"
+      }
     ></div>
   );
 }
