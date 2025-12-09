@@ -11,13 +11,18 @@ aino:
 albedo:
   name: Albedo
   preview: 6
-  count: 10
+  count: 11
   color: yellow
 alhaitham:
   name: Alhaitham
   preview: 3
   count: 4
   color: green
+alice:
+  name: Alice
+  preview: 1
+  count: 1
+  color: red
 amber:
   name: Amber
   preview: 4
@@ -106,7 +111,7 @@ collei:
 columbina:
   name: Columbina
   preview: 1
-  count: 2
+  count: 3
   color: sky
 cyno:
   name: Cyno
@@ -145,8 +150,8 @@ dori:
   color: purple
 durin:
   name: Durin
-  preview: 1
-  count: 3
+  preview: 4
+  count: 7
   color: red
 emilie:
   name: Emilie
@@ -236,7 +241,7 @@ itto:
 jahoda:
   name: Jahoda
   preview: 1
-  count: 3
+  count: 7
   color: red
 jean:
   name: Jean
@@ -281,7 +286,7 @@ kirara:
 klee:
   name: Klee
   preview: 7
-  count: 7
+  count: 8
   color: red
 kokomi:
   name: Kokomi
@@ -351,7 +356,7 @@ mizuki:
 mona:
   name: Mona
   preview: 1
-  count: 8
+  count: 9
   color: blue
 mualani:
   name: Mualani
@@ -378,6 +383,11 @@ neuvillette:
   preview: 1
   count: 6
   color: blue
+nicole:
+  name: Nicole
+  preview: 1
+  count: 1
+  color: purple
 nilou:
   name: Nilou
   preview: 1
@@ -491,12 +501,12 @@ varka:
 venti:
   name: Venti
   preview: 15
-  count: 15
+  count: 16
   color: teal
 wanderer:
   name: Wanderer
   preview: 4
-  count: 9
+  count: 10
   color: teal
 wriothesley:
   name: Wriothesley
