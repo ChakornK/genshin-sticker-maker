@@ -41,7 +41,8 @@ export default defineConfig({
           return html.replace(/(?<=<head>)/, metaHtml);
         })(html, {
           title: "Genshin Sticker Maker",
-          description: "Create stickers with Genshin characters",
+          description:
+            "Create PJSK-style stickers with Genshin characters. Add your own text and download the sticker to use anywhere.",
           image: `${process.env.VITE_RESOURCE_BASE_URL || ""}/favicon.png`,
         });
       },
