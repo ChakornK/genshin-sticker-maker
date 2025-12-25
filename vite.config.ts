@@ -38,7 +38,7 @@ export default defineConfig({
 		        <meta name="twitter:description" content="${description}">
 		        <meta name="twitter:card" content="summary">
 		        <meta name="twitter:image" content="${image}">
-          <link rel="canonical" href="${process.env.VITE_RESOURCE_BASE_URL}" />`;
+		        <link rel="canonical" href="${process.env.VITE_RESOURCE_BASE_URL}" />`;
           return html.replace(/(?<=<head>)/, metaHtml);
         })(html, {
           title: "Genshin Sticker Maker",
