@@ -18,6 +18,15 @@ import { Layer as KonvaLayer } from "konva/lib/Layer";
 const RESOURCE_BASE_URL = import.meta.env.VITE_RESOURCE_BASE_URL || "assets";
 
 export function Home() {
+  const [ghLink, setGhLink] = useState(
+    "https://github.com/ChakornK/genshin-sticker-maker",
+  );
+  useEffect(() => {
+    setGhLink(
+      `https://github.com/ChakornK/genshin-sticker-maker?utm_source=${location.host || ""}`,
+    );
+  }, []);
+
   return (
     <main
       className={
@@ -32,13 +41,7 @@ export function Home() {
           <Editor />
         </div>
       </div>
-      <a
-        href={`https://github.com/ChakornK/genshin-sticker-maker?utm_source=${
-          location.host || ""
-        }`}
-        target={"_blank"}
-        class={"hover:text-accent underline"}
-      >
+      <a href={ghLink} target={"_blank"} class={"hover:text-accent underline"}>
         Source code
       </a>
     </main>
@@ -62,7 +65,7 @@ function Editor() {
 
   useEffect(() => {
     const chars = Object.entries(data).filter(
-      ([char]) => !["hilichurl", "others"].includes(char)
+      ([char]) => !["hilichurl", "others"].includes(char),
     );
     const [id, { preview: n, color }] =
       chars[Math.floor(Math.random() * chars.length)];
@@ -471,7 +474,7 @@ function StickerListTile({
 const getRainbow = () => {
   const r = Object.keys(colors)
     .filter((c) =>
-      ["red", "yellow", "green", "teal", "sky", "blue", "purple"].includes(c)
+      ["red", "yellow", "green", "teal", "sky", "blue", "purple"].includes(c),
     )
     .map((c) => colors[c]);
   r.push(r[0]);
