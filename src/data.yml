@@ -111,7 +111,7 @@ collei:
 columbina:
   name: Columbina
   preview: 1
-  count: 3
+  count: 7
   color: sky
 cyno:
   name: Cyno
@@ -196,7 +196,7 @@ furina:
 gaming:
   name: Gaming
   preview: 5
-  count: 7
+  count: 8
   color: red
 ganyu:
   name: Ganyu
@@ -228,6 +228,11 @@ ifa:
   preview: 3
   count: 7
   color: teal
+illuga:
+  name: Illuga
+  preview: 2
+  count: 3
+  color: yellow
 ineffa:
   name: Ineffa
   preview: 1
@@ -381,7 +386,7 @@ nefer:
 neuvillette:
   name: Neuvillette
   preview: 1
-  count: 6
+  count: 7
   color: blue
 nicole:
   name: Nicole
@@ -416,7 +421,7 @@ paimon:
 qiqi:
   name: Qiqi
   preview: 2
-  count: 3
+  count: 4
   color: sky
 raiden:
   name: Raiden
@@ -436,7 +441,7 @@ rosaria:
 sandrone:
   name: Sandrone
   preview: 1
-  count: 2
+  count: 3
   color: yellow
 sara:
   name: Kujou Sara
@@ -551,7 +556,7 @@ yanfei:
 yaoyao:
   name: Yaoyao
   preview: 3
-  count: 8
+  count: 9
   color: green
 yelan:
   name: Yelan
@@ -571,7 +576,12 @@ yunjin:
 zhongli:
   name: Zhongli
   preview: 7
-  count: 7
+  count: 8
+  color: yellow
+zibai:
+  name: Zibai
+  preview: 1
+  count: 4
   color: yellow
 hilichurl:
   name: Hilichurl
