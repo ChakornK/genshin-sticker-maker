@@ -21,7 +21,7 @@ alhaitham:
 alice:
   name: Alice
   preview: 1
-  count: 1
+  count: 2
   color: red
 amber:
   name: Amber
@@ -136,7 +136,7 @@ dehya:
 diluc:
   name: Diluc
   preview: 1
-  count: 2
+  count: 3
   color: red
 diona:
   name: Diona
@@ -176,7 +176,7 @@ faruzan:
 fischl:
   name: Fischl
   preview: 5
-  count: 5
+  count: 6
   color: purple
 flins:
   name: Flins
@@ -251,7 +251,7 @@ jahoda:
 jean:
   name: Jean
   preview: 6
-  count: 8
+  count: 9
   color: teal
 kachina:
   name: Kachina
@@ -323,6 +323,11 @@ lisa:
   preview: 2
   count: 3
   color: purple
+lohen:
+  name: Lohen
+  preview: 1
+  count: 2
+  color: sky
 lumine:
   name: Lumine
   preview: 8
@@ -346,7 +351,7 @@ mavuika:
 mika:
   name: Mika
   preview: 4
-  count: 4
+  count: 5
   color: sky
 miko:
   name: Miko
@@ -391,7 +396,7 @@ neuvillette:
 nicole:
   name: Nicole
   preview: 1
-  count: 1
+  count: 2
   color: purple
 nilou:
   name: Nilou
@@ -416,7 +421,7 @@ ororon:
 paimon:
   name: Paimon
   preview: 20
-  count: 35
+  count: 36
   color: neutral
 qiqi:
   name: Qiqi
@@ -431,7 +436,7 @@ raiden:
 razor:
   name: Razor
   preview: 1
-  count: 3
+  count: 4
   color: purple
 rosaria:
   name: Rosaria
@@ -501,12 +506,12 @@ varesa:
 varka:
   name: Varka
   preview: 1
-  count: 1
+  count: 6
   color: teal
 venti:
   name: Venti
   preview: 15
-  count: 16
+  count: 17
   color: teal
 wanderer:
   name: Wanderer
